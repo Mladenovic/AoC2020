@@ -7,11 +7,22 @@ let input =
 let pairs = seq {
     for i in [0 .. input.Length - 1] do
         for j in [i .. input.Length - 1] do 
-            yield if input.[i] + input.[j] = 2020 then Some (i,j) else None
+            yield if input.[i] + input.[j] = 2020 then Some (input.[i] * input.[j]) else None
 }
 
-let solution = 
-    pairs 
-    |> List.ofSeq 
-    |> List.choose id
-    |> List.map (fun (x, y) -> x * y)
+let solutionPart1 = 
+    pairs
+    |> Seq.choose id
+    |> List.ofSeq         
+
+let triples = seq {
+    for i in [0 .. input.Length - 1] do
+        for j in [i .. input.Length - 1] do
+            for k in [j .. input.Length - 1] do
+                yield if input.[i] + input.[j] + input.[k] = 2020 then Some (input.[i] * input.[j] * input.[k]) else None 
+}
+
+let solutionPart2 =
+    triples
+    |> Seq.choose id
+    |> List.ofSeq
