@@ -4,8 +4,6 @@ let input =
     File.ReadAllLines @"input\Day3\input.txt"
     |> Array.map (fun ch -> ch |> Seq.map ((=) '#') |> Array.ofSeq)
 
-let lineLenght = input |> Array.head |> Array.length
-
 type State = { Column: int; Trees: int64 }
 
 let initialState = { Column = 0; Trees = 0L }
@@ -14,7 +12,7 @@ let folder slope state (curr: bool []) =
     { Column = state.Column + slope
       Trees =
           state.Trees
-          + if curr.[state.Column % lineLenght] then 1L else 0L }
+          + if curr.[state.Column % curr.Length] then 1L else 0L }
 
 let everyNth n (input: seq<_>) =
     input
