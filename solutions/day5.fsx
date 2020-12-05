@@ -63,7 +63,7 @@ let solution1 =
     input
     |> Array.max
 
-let minId = 1 * 8
+let minId = 8
 let maxId = 127 * 8 - 1
 
 let seatIdSet = input |> Set.ofArray
