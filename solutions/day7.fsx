@@ -73,4 +73,4 @@ let rec calculateBagNumber bag =
     else 1 +
          (contained |> Set.toSeq |> Seq.sumBy (fun x -> x.Number * calculateBagNumber x.Bag))
     
-let soulution2 = calculateBagNumber shinyGold - 1
+let solution2 = calculateBagNumber shinyGold - 1
