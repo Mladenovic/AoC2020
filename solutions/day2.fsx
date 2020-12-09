@@ -1,6 +1,4 @@
-﻿open System
-open System.IO
-
+﻿open System.IO
 open System.Text.RegularExpressions
 
 type PasswordPolicy =
